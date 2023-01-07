@@ -13,7 +13,7 @@ const updateAdmin = (body) =>{
     const query = {_id: body._id};
     return adminModel.findOneAndUpdate(query, body, {
         new:true
-    });
+    }); 
 };
 
 const deleteAdmin = (filter) => {

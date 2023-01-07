@@ -8,6 +8,7 @@ const passport = require("passport");
 const { Strategy } = require("passport-local");
 const authMiddleware = require("./middleware/authMiddleware");
 // var indexRouter = require('./routes/index');
+const inputMiddleware = require("./middleware/inputMiddleware");
 const { userRoutes, adminRoutes, clientRoutes } = require("./routes");
 
 var app = express();
@@ -36,6 +37,7 @@ passport.use(
   })
 );
 
+app.use(inputMiddleware.handleOptions);
 //actual routes
 app.post("/signup", authMiddleware.userSignUp);
 app.post(
